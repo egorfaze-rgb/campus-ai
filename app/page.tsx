@@ -5,21 +5,69 @@ import { useRouter } from "next/navigation"
 export default function Home() {
   const router = useRouter()
 
+  const features = [
+    "Понятные ответы на русском и английском",
+    "Разбор SWOT, курсовых и структуры работ",
+    "Подготовка к midterm и exam",
+    "AI по лекциям, методичкам и материалам курса",
+    "Быстрый вход в нужный предмет",
+    "Единая среда для учебы без хаоса",
+  ]
+
+  const useCases = [
+    {
+      title: "SWOT анализ - курсач",
+      text: "Разбор структуры работы, сильных и слабых сторон, логики анализа и формулировок по курсу.",
+      action: () => router.push("/swot"),
+      button: "Открыть SWOT чат",
+    },
+    {
+      title: "Менеджмент",
+      text: "Подготовка к midterm и exam, объяснение теорий, терминов и сложных тем простым языком.",
+      action: undefined,
+      button: "Скоро",
+    },
+    {
+      title: "Работа по материалам",
+      text: "Следующий этап развития - AI, который умеет отвечать по лекциям, методичкам и базе предмета.",
+      action: undefined,
+      button: "В разработке",
+    },
+  ]
+
+  const steps = [
+    {
+      number: "01",
+      title: "Выбери предмет",
+      text: "Студент открывает нужное направление и сразу попадает в рабочий режим без лишнего поиска.",
+    },
+    {
+      number: "02",
+      title: "Задай вопрос",
+      text: "Можно попросить объяснение темы, помощь по SWOT, подготовку к экзамену или разбор задания.",
+    },
+    {
+      number: "03",
+      title: "Получи структурированный ответ",
+      text: "CampusAI отвечает понятно, быстро и в формате, который реально помогает в учебе.",
+    },
+  ]
+
   return (
     <main
       style={{
         minHeight: "100vh",
+        background: `
+          radial-gradient(circle at 12% 10%, rgba(255, 0, 153, 0.22), transparent 24%),
+          radial-gradient(circle at 84% 12%, rgba(120, 54, 255, 0.24), transparent 26%),
+          radial-gradient(circle at 70% 50%, rgba(255, 0, 153, 0.08), transparent 28%),
+          radial-gradient(circle at 18% 82%, rgba(0, 123, 255, 0.14), transparent 22%),
+          linear-gradient(180deg, #05030a 0%, #090512 34%, #0b0615 68%, #07040e 100%)
+        `,
         color: "white",
         fontFamily:
           'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-        background: `
-          radial-gradient(circle at 12% 12%, rgba(255, 0, 153, 0.22), transparent 24%),
-          radial-gradient(circle at 82% 14%, rgba(130, 44, 255, 0.28), transparent 26%),
-          radial-gradient(circle at 60% 46%, rgba(255, 0, 153, 0.08), transparent 30%),
-          radial-gradient(circle at 22% 78%, rgba(0, 132, 255, 0.16), transparent 22%),
-          linear-gradient(180deg, #04030a 0%, #090512 38%, #0c0717 68%, #09030f 100%)
-        `,
-        overflow: "hidden",
+        overflowX: "hidden",
       }}
     >
       <div
@@ -29,25 +77,25 @@ export default function Home() {
           pointerEvents: "none",
           background:
             "linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px)",
-          backgroundSize: "36px 36px",
+          backgroundSize: "38px 38px",
           maskImage:
-            "linear-gradient(to bottom, rgba(0,0,0,0.75), rgba(0,0,0,0.2) 55%, transparent 100%)",
+            "linear-gradient(to bottom, rgba(0,0,0,0.75), rgba(0,0,0,0.28) 60%, transparent 100%)",
           WebkitMaskImage:
-            "linear-gradient(to bottom, rgba(0,0,0,0.75), rgba(0,0,0,0.2) 55%, transparent 100%)",
+            "linear-gradient(to bottom, rgba(0,0,0,0.75), rgba(0,0,0,0.28) 60%, transparent 100%)",
         }}
       />
 
       <div
         style={{
           position: "absolute",
-          top: "-140px",
-          left: "-120px",
-          width: "420px",
-          height: "420px",
+          top: "-120px",
+          left: "-80px",
+          width: "380px",
+          height: "380px",
           borderRadius: "999px",
           background:
-            "radial-gradient(circle, rgba(255,0,153,0.55) 0%, rgba(255,0,153,0.18) 40%, rgba(255,0,153,0) 72%)",
-          filter: "blur(36px)",
+            "radial-gradient(circle, rgba(255,0,153,0.5) 0%, rgba(255,0,153,0.16) 42%, rgba(255,0,153,0) 72%)",
+          filter: "blur(34px)",
           pointerEvents: "none",
         }}
       />
@@ -56,28 +104,13 @@ export default function Home() {
         style={{
           position: "absolute",
           top: "120px",
-          right: "-80px",
+          right: "-90px",
           width: "420px",
           height: "420px",
           borderRadius: "999px",
           background:
-            "radial-gradient(circle, rgba(111,0,255,0.5) 0%, rgba(111,0,255,0.16) 42%, rgba(111,0,255,0) 76%)",
+            "radial-gradient(circle, rgba(111,0,255,0.5) 0%, rgba(111,0,255,0.16) 42%, rgba(111,0,255,0) 74%)",
           filter: "blur(42px)",
-          pointerEvents: "none",
-        }}
-      />
-
-      <div
-        style={{
-          position: "absolute",
-          bottom: "120px",
-          left: "18%",
-          width: "320px",
-          height: "320px",
-          borderRadius: "999px",
-          background:
-            "radial-gradient(circle, rgba(0,140,255,0.24) 0%, rgba(0,140,255,0.12) 38%, rgba(0,140,255,0) 72%)",
-          filter: "blur(36px)",
           pointerEvents: "none",
         }}
       />
@@ -97,7 +130,8 @@ export default function Home() {
             justifyContent: "space-between",
             alignItems: "center",
             gap: "18px",
-            marginBottom: "72px",
+            marginBottom: "68px",
+            flexWrap: "wrap",
           }}
         >
           <div
@@ -113,8 +147,8 @@ export default function Home() {
                 height: "14px",
                 borderRadius: "999px",
                 background:
-                  "linear-gradient(135deg, rgba(255,0,153,1) 0%, rgba(178,59,255,1) 100%)",
-                boxShadow: "0 0 22px rgba(255, 0, 153, 0.8)",
+                  "linear-gradient(135deg, rgba(255,0,153,1) 0%, rgba(176,53,255,1) 100%)",
+                boxShadow: "0 0 20px rgba(255, 0, 153, 0.85)",
               }}
             />
             <div
@@ -132,21 +166,20 @@ export default function Home() {
             style={{
               display: "flex",
               gap: "14px",
-              alignItems: "center",
               flexWrap: "wrap",
             }}
           >
             <button
               onClick={() => router.push("/swot")}
               style={{
-                padding: "13px 22px",
                 borderRadius: "999px",
                 border: "1px solid rgba(255,255,255,0.12)",
                 background: "rgba(255,255,255,0.05)",
                 color: "white",
-                cursor: "pointer",
+                padding: "13px 22px",
                 fontSize: "15px",
                 fontWeight: 600,
+                cursor: "pointer",
                 backdropFilter: "blur(14px)",
                 WebkitBackdropFilter: "blur(14px)",
               }}
@@ -159,39 +192,38 @@ export default function Home() {
         <section
           style={{
             display: "grid",
-            gridTemplateColumns: "1.12fr 0.88fr",
-            gap: "28px",
+            gridTemplateColumns: "1.15fr 0.85fr",
+            gap: "26px",
             alignItems: "stretch",
-            marginBottom: "34px",
+            marginBottom: "32px",
           }}
         >
           <div
             style={{
               position: "relative",
               background:
-                "linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 100%)",
+                "linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.035) 100%)",
               border: "1px solid rgba(255,255,255,0.11)",
-              borderRadius: "34px",
-              padding: "38px",
+              borderRadius: "36px",
+              padding: "42px",
               backdropFilter: "blur(18px)",
               WebkitBackdropFilter: "blur(18px)",
               boxShadow:
-                "0 20px 70px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.06)",
+                "0 24px 80px rgba(0,0,0,0.34), inset 0 1px 0 rgba(255,255,255,0.05)",
               overflow: "hidden",
             }}
           >
             <div
               style={{
                 position: "absolute",
-                top: "-80px",
-                right: "-40px",
-                width: "240px",
-                height: "240px",
+                top: "-70px",
+                right: "-30px",
+                width: "220px",
+                height: "220px",
                 borderRadius: "999px",
                 background:
-                  "radial-gradient(circle, rgba(255,0,153,0.42) 0%, rgba(255,0,153,0.08) 46%, rgba(255,0,153,0) 72%)",
+                  "radial-gradient(circle, rgba(255,0,153,0.45) 0%, rgba(255,0,153,0.1) 42%, rgba(255,0,153,0) 72%)",
                 filter: "blur(20px)",
-                pointerEvents: "none",
               }}
             />
 
@@ -209,38 +241,38 @@ export default function Home() {
                 marginBottom: "26px",
               }}
             >
-              AI-платформа для учебы и анализа
+              AI-платформа для учебы, анализа и подготовки
             </div>
 
             <h1
               style={{
                 margin: "0 0 24px",
-                fontSize: "78px",
-                lineHeight: 0.95,
+                fontSize: "82px",
+                lineHeight: 0.94,
                 fontWeight: 800,
-                letterSpacing: "-0.055em",
-                maxWidth: "760px",
+                letterSpacing: "-0.06em",
+                maxWidth: "820px",
               }}
             >
-              AI-ассистент
+              Вся учеба
               <br />
-              для студентов
+              в одном
               <br />
-              нового уровня
+              AI-интерфейсе
             </h1>
 
             <p
               style={{
-                margin: "0 0 30px",
-                maxWidth: "760px",
+                margin: "0 0 32px",
+                maxWidth: "780px",
                 fontSize: "24px",
-                lineHeight: 1.55,
+                lineHeight: 1.58,
                 color: "rgba(255,255,255,0.74)",
               }}
             >
-              CampusAI помогает разбирать SWOT, готовиться к midterm и exam,
-              понимать сложные темы по менеджменту и постепенно станет единой
-              AI-средой для всей учебы.
+              CampusAI объединяет подготовку к экзаменам, разбор SWOT, работу по
+              методичкам и объяснение сложных тем в одном пространстве, которое
+              постепенно превращается в полноценную AI-систему для студента.
             </p>
 
             <div
@@ -254,16 +286,16 @@ export default function Home() {
               <button
                 onClick={() => router.push("/swot")}
                 style={{
-                  padding: "16px 28px",
-                  borderRadius: "999px",
                   border: "none",
+                  borderRadius: "999px",
+                  padding: "16px 28px",
                   cursor: "pointer",
                   color: "white",
                   fontSize: "17px",
                   fontWeight: 700,
                   background:
-                    "linear-gradient(90deg, rgba(255,0,153,0.95) 0%, rgba(176,53,255,0.95) 100%)",
-                  boxShadow: "0 12px 35px rgba(255, 0, 153, 0.35)",
+                    "linear-gradient(90deg, rgba(255,0,153,0.98) 0%, rgba(176,53,255,0.98) 100%)",
+                  boxShadow: "0 12px 35px rgba(255, 0, 153, 0.36)",
                 }}
               >
                 Перейти в SWOT чат
@@ -271,11 +303,11 @@ export default function Home() {
 
               <button
                 style={{
-                  padding: "16px 28px",
                   borderRadius: "999px",
                   border: "1px solid rgba(255,255,255,0.12)",
                   background: "rgba(255,255,255,0.05)",
                   color: "white",
+                  padding: "16px 28px",
                   fontSize: "17px",
                   fontWeight: 600,
                   cursor: "default",
@@ -283,7 +315,7 @@ export default function Home() {
                   WebkitBackdropFilter: "blur(14px)",
                 }}
               >
-                Менеджмент - скоро
+                Менеджмент - следующий этап
               </button>
             </div>
 
@@ -296,8 +328,8 @@ export default function Home() {
             >
               {[
                 "SWOT и курсовые",
-                "Подготовка к экзаменам",
-                "AI по учебным материалам",
+                "Экзамены и midterm",
+                "AI по материалам курса",
               ].map((item) => (
                 <div
                   key={item}
@@ -308,7 +340,7 @@ export default function Home() {
                     border: "1px solid rgba(255,255,255,0.09)",
                     color: "rgba(255,255,255,0.9)",
                     fontSize: "15px",
-                    lineHeight: 1.4,
+                    lineHeight: 1.42,
                   }}
                 >
                   {item}
@@ -325,7 +357,6 @@ export default function Home() {
           >
             <div
               style={{
-                position: "relative",
                 minHeight: "250px",
                 borderRadius: "30px",
                 padding: "28px",
@@ -334,23 +365,9 @@ export default function Home() {
                 border: "1px solid rgba(255,255,255,0.1)",
                 backdropFilter: "blur(18px)",
                 WebkitBackdropFilter: "blur(18px)",
-                overflow: "hidden",
-                boxShadow: "0 16px 50px rgba(0,0,0,0.24)",
+                boxShadow: "0 16px 50px rgba(0,0,0,0.26)",
               }}
             >
-              <div
-                style={{
-                  position: "absolute",
-                  inset: "auto -40px -40px auto",
-                  width: "180px",
-                  height: "180px",
-                  borderRadius: "999px",
-                  background:
-                    "radial-gradient(circle, rgba(255,0,153,0.46) 0%, rgba(255,0,153,0.12) 40%, rgba(255,0,153,0) 75%)",
-                  filter: "blur(18px)",
-                }}
-              />
-
               <div
                 style={{
                   color: "#ff50bc",
@@ -361,15 +378,15 @@ export default function Home() {
                   marginBottom: "16px",
                 }}
               >
-                Сейчас внутри
+                Уже работает
               </div>
 
               <div
                 style={{
-                  fontSize: "38px",
+                  fontSize: "40px",
                   lineHeight: 1.02,
                   fontWeight: 800,
-                  letterSpacing: "-0.045em",
+                  letterSpacing: "-0.05em",
                   marginBottom: "14px",
                 }}
               >
@@ -384,12 +401,11 @@ export default function Home() {
                 style={{
                   color: "rgba(255,255,255,0.72)",
                   fontSize: "18px",
-                  lineHeight: 1.55,
-                  maxWidth: "420px",
+                  lineHeight: 1.58,
                 }}
               >
-                Уже есть рабочий сайт, деплой, AI-чат и база для дальнейшего
-                роста в полноценный продукт.
+                Уже есть сайт, AI-чат, деплой и основа для масштабирования в
+                полноценный продукт.
               </div>
             </div>
 
@@ -400,68 +416,80 @@ export default function Home() {
                 gap: "18px",
               }}
             >
-              {[
-                {
-                  title: "SWOT анализ",
-                  text: "Разбор структуры работы, логики анализа и помощи по курсачу.",
-                },
-                {
-                  title: "Менеджмент",
-                  text: "Позже добавим midterm, exam и отдельный AI-режим по предмету.",
-                },
-                {
-                  title: "Финансы",
-                  text: "Следующий слой - задачи, формулы и разбор финансовых кейсов.",
-                },
-                {
-                  title: "Материалы",
-                  text: "Дальше встроим лекции, методички и внутреннюю базу знаний.",
-                },
-              ].map((card) => (
+              {useCases.map((card) => (
                 <div
                   key={card.title}
                   style={{
-                    minHeight: "182px",
+                    minHeight: "212px",
                     borderRadius: "24px",
                     padding: "22px",
                     background: "rgba(255,255,255,0.05)",
                     border: "1px solid rgba(255,255,255,0.1)",
                     backdropFilter: "blur(16px)",
                     WebkitBackdropFilter: "blur(16px)",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
                   }}
                 >
-                  <div
+                  <div>
+                    <div
+                      style={{
+                        width: "10px",
+                        height: "10px",
+                        borderRadius: "999px",
+                        background:
+                          "linear-gradient(135deg, rgba(255,0,153,1) 0%, rgba(176,53,255,1) 100%)",
+                        boxShadow: "0 0 14px rgba(255,0,153,0.7)",
+                        marginBottom: "16px",
+                      }}
+                    />
+
+                    <div
+                      style={{
+                        fontSize: "26px",
+                        fontWeight: 700,
+                        lineHeight: 1.08,
+                        marginBottom: "10px",
+                      }}
+                    >
+                      {card.title}
+                    </div>
+
+                    <div
+                      style={{
+                        color: "rgba(255,255,255,0.72)",
+                        fontSize: "16px",
+                        lineHeight: 1.55,
+                      }}
+                    >
+                      {card.text}
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={card.action}
                     style={{
-                      width: "10px",
-                      height: "10px",
+                      marginTop: "18px",
                       borderRadius: "999px",
-                      background:
-                        "linear-gradient(135deg, rgba(255,0,153,1) 0%, rgba(176,53,255,1) 100%)",
-                      boxShadow: "0 0 14px rgba(255,0,153,0.7)",
-                      marginBottom: "16px",
-                    }}
-                  />
-
-                  <div
-                    style={{
-                      fontSize: "25px",
+                      border: card.action
+                        ? "none"
+                        : "1px solid rgba(255,255,255,0.1)",
+                      background: card.action
+                        ? "linear-gradient(90deg, rgba(255,0,153,0.95) 0%, rgba(176,53,255,0.95) 100%)"
+                        : "rgba(255,255,255,0.05)",
+                      color: "white",
+                      padding: "12px 18px",
+                      fontSize: "15px",
                       fontWeight: 700,
-                      lineHeight: 1.08,
-                      marginBottom: "10px",
+                      cursor: card.action ? "pointer" : "default",
+                      boxShadow: card.action
+                        ? "0 10px 24px rgba(255,0,153,0.28)"
+                        : "none",
                     }}
                   >
-                    {card.title}
-                  </div>
-
-                  <div
-                    style={{
-                      color: "rgba(255,255,255,0.72)",
-                      fontSize: "16px",
-                      lineHeight: 1.55,
-                    }}
-                  >
-                    {card.text}
-                  </div>
+                    {card.button}
+                  </button>
                 </div>
               ))}
             </div>
@@ -470,7 +498,7 @@ export default function Home() {
 
         <section
           style={{
-            marginTop: "22px",
+            marginBottom: "34px",
             background:
               "linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.03) 100%)",
             border: "1px solid rgba(255,255,255,0.1)",
@@ -507,10 +535,11 @@ export default function Home() {
               <h2
                 style={{
                   margin: "0 0 18px",
-                  fontSize: "52px",
-                  lineHeight: 0.98,
+                  fontSize: "64px",
+                  lineHeight: 0.94,
                   fontWeight: 800,
-                  letterSpacing: "-0.05em",
+                  letterSpacing: "-0.055em",
+                  maxWidth: "560px",
                 }}
               >
                 Один интерфейс
@@ -527,8 +556,8 @@ export default function Home() {
                   margin: 0,
                   color: "rgba(255,255,255,0.74)",
                   fontSize: "20px",
-                  lineHeight: 1.65,
-                  maxWidth: "560px",
+                  lineHeight: 1.68,
+                  maxWidth: "580px",
                 }}
               >
                 Вместо десятков вкладок, методичек и хаоса студент получает
@@ -544,27 +573,21 @@ export default function Home() {
                 gap: "16px",
               }}
             >
-              {[
-                "Понятные ответы на русском и английском",
-                "Разбор SWOT и структуры работ",
-                "Подготовка к midterm и exam",
-                "Следующий этап - AI по лекциям и методичкам",
-                "Быстрый запуск нужного предмета",
-                "Основа для будущего платного продукта",
-              ].map((item) => (
+              {features.map((item) => (
                 <div
                   key={item}
                   style={{
-                    minHeight: "116px",
-                    borderRadius: "20px",
-                    padding: "18px 20px",
+                    minHeight: "118px",
+                    borderRadius: "22px",
+                    padding: "22px",
                     background: "rgba(255,255,255,0.045)",
                     border: "1px solid rgba(255,255,255,0.09)",
                     display: "flex",
                     alignItems: "center",
                     color: "rgba(255,255,255,0.92)",
                     fontSize: "17px",
-                    lineHeight: 1.45,
+                    lineHeight: 1.5,
+                    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.03)",
                   }}
                 >
                   {item}
@@ -572,6 +595,63 @@ export default function Home() {
               ))}
             </div>
           </div>
+        </section>
+
+        <section
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+            gap: "18px",
+          }}
+        >
+          {steps.map((step) => (
+            <div
+              key={step.number}
+              style={{
+                borderRadius: "28px",
+                padding: "28px",
+                background:
+                  "linear-gradient(180deg, rgba(255,255,255,0.055) 0%, rgba(255,255,255,0.03) 100%)",
+                border: "1px solid rgba(255,255,255,0.09)",
+                backdropFilter: "blur(14px)",
+                WebkitBackdropFilter: "blur(14px)",
+              }}
+            >
+              <div
+                style={{
+                  color: "#ff4bb7",
+                  fontSize: "15px",
+                  fontWeight: 800,
+                  letterSpacing: "0.06em",
+                  marginBottom: "14px",
+                }}
+              >
+                {step.number}
+              </div>
+
+              <h3
+                style={{
+                  margin: "0 0 12px",
+                  fontSize: "28px",
+                  fontWeight: 700,
+                  lineHeight: 1.08,
+                }}
+              >
+                {step.title}
+              </h3>
+
+              <p
+                style={{
+                  margin: 0,
+                  color: "rgba(255,255,255,0.72)",
+                  fontSize: "17px",
+                  lineHeight: 1.6,
+                }}
+              >
+                {step.text}
+              </p>
+            </div>
+          ))}
         </section>
       </div>
     </main>
