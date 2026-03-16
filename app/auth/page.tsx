@@ -25,10 +25,11 @@ export default function AuthPage() {
     })
 
     if (error) {
-      setMessage("Ошибка при отправке кода. Попробуй еще раз.")
-      setLoading(false)
-      return
-    }
+  console.error("send code error:", error)
+  setMessage(`Ошибка: ${error.message}`)
+  setLoading(false)
+  return
+}
 
     setStep("code")
     setMessage("Код отправлен на почту.")
