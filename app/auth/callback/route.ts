@@ -1,14 +1,15 @@
 import { createServerClient } from "@supabase/ssr"
+import { cookies } from "next/headers"
 import { NextResponse } from "next/server"
 import type { EmailOtpType } from "@supabase/supabase-js"
 
 export async function GET(request: Request) {
   const requestUrl = new URL(request.url)
-
   const code = requestUrl.searchParams.get("code")
   const token_hash = requestUrl.searchParams.get("token_hash")
   const type = requestUrl.searchParams.get("type") as EmailOtpType | null
 
+  const cookieStore = await cookies()
   const response = NextResponse.redirect(new URL("/dashboard", request.url))
 
   const supabase = createServerClient(
@@ -17,15 +18,7 @@ export async function GET(request: Request) {
     {
       cookies: {
         getAll() {
-          const cookieHeader = request.headers.get("cookie") ?? ""
-
-          return cookieHeader
-            .split(";")
-            .filter(Boolean)
-            .map((cookie) => {
-              const [name, ...rest] = cookie.trim().split("=")
-              return { name, value: rest.join("=") }
-            })
+          return cookieStore.getAll()
         },
         setAll(cookiesToSet) {
           cookiesToSet.forEach(({ name, value, options }) => {
